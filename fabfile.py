@@ -72,7 +72,7 @@ def create_version():
         run('mkdir -p releases/%s' % env.version)
     
     upload_tar_from_git()
-    setup_virtualenv()
+    #setup_virtualenv()
     install_requirements()
 
 def deploy():
@@ -91,7 +91,7 @@ def deploy():
         sudo('a2ensite bugle')
     
         run('rm -f %(version_path)s/%(project_name)s/static/admin' % env)
-        run('ln -s %(version_path)s/%(project_name)s_ve/lib/python2.5/site-packages/django/contrib/admin/media %(version_path)s/%(project_name)s/static/admin' % env)
+        #run('ln -s %(version_path)s/%(project_name)s_ve/lib/python2.5/site-packages/django/contrib/admin/media %(version_path)s/%(project_name)s/static/admin' % env)
         run('rm -f %(version_path)s/%(project_name)s/uploads' % env)
         run('ln -s %(path)s/uploads %(version_path)s/%(project_name)s/uploads' % env)
 
@@ -121,7 +121,7 @@ def install_requirements():
     "Install the required packages from the requirements file using pip"
     require('version_path')
     with cd(env.version_path):
-        run('pip install --upgrade -E %s_ve/ -r requirements.txt' % env.project_name)
+        run('pip install requirements.txt' % env.project_name)
 
 def restart_apache():
     sudo('/etc/init.d/apache2 force-reload')
