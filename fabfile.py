@@ -8,7 +8,7 @@ import time
 env.project_name = 'bugle_project'
 env.roledefs = {
     'localhost': ['127.0.0.1',],
-    'live': ['root@bugle.fort',],
+    'live': ['bugle@bugle.fort',],
 }
  
 ######################################
@@ -87,7 +87,7 @@ def deploy():
         run('ln -s %s releases/current' % env.version_path)
 
         # Install virtualenv
-        sudo('cp %(version_path)s/%(project_name)s/configs/live/virtualhosts/bugle /etc/apache2/sites-available/')
+        sudo('cp %(version_path)s/%(project_name)s/configs/live/virtualhosts/bugle /etc/apache2/sites-available/' % env)
         sudo('a2ensite bugle')
     
         run('rm -f %(version_path)s/%(project_name)s/static/admin' % env)

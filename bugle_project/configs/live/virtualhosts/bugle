@@ -2,7 +2,7 @@
     ServerName twitter.com
     ServerAlias api.twitter.com
     WSGIPassAuthorization On
-    WSGIScriptAlias / /home/bugle/bugle_project/bugle_project/configs/live/bugle.wsgi
+    WSGIScriptAlias / /home/bugle/releases/current/bugle_project/configs/live/bugle.wsgi
         ErrorLog /var/log/apache2/bugle-error.log
         CustomLog /var/log/apache2/bugle-access.log combined
 </VirtualHost>
@@ -12,7 +12,7 @@
     ServerName twitter.com  
     ServerAlias api.twitter.com
     WSGIPassAuthorization On
-    WSGIScriptAlias / /home/bugle/bugle_project/bugle_project/configs/live/bugle.wsgi
+    WSGIScriptAlias / /home/bugle/releases/current/bugle_project/configs/live/bugle.wsgi
     ErrorLog /var/log/apache2/bugle-error.log
     CustomLog /var/log/apache2/bugle-access.log combined
     SSLEngine on
