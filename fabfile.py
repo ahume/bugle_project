@@ -121,7 +121,7 @@ def install_requirements():
     "Install the required packages from the requirements file using pip"
     require('version_path')
     with cd(env.version_path):
-        run('pip install requirements.txt' % env.project_name)
+        run('pip install --upgrade -E -r requirements.txt')
 
 def restart_apache():
     sudo('/etc/init.d/apache2 force-reload')
